@@ -1,7 +1,8 @@
-
 const isProd = process.env.NODE_ENV === "production";
 
-const basePath = isProd ? "/geeky-nextjs" : "";
+// Only use basePath for GitHub Pages, not for Amplify
+const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
+const basePath = isProd && isGitHubPages ? "/geeky-nextjs" : "";
 
 const nextConfig = {
   basePath,
